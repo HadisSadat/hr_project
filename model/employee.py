@@ -59,15 +59,16 @@ class Employee:
 
 
     def __repr__(self):
-        return (f"Employee: {self.family:20}"
-                f" {self.family:30}"
-                f" {self.national_id:10}"
-                f" {self.phone_number:11}"
+        return (f"Employee : {self.emp_id:4} "
+                f"{self.name:15}"
+                f" {self.family:20}"
+                f" {self.national_id:15}"
+                f" {self.phone_number:14}"
                 f" {self.position:20}"
                 f" {self.salary:5}")
 
 
     def to_tuple(self):
-        return self.emp_id, self.name, self.family, self.national_id, self.phone_number, self.position, self.salary
+        return (self.emp_id, self.name, self.family, self.national_id, self.phone_number, self.position, self.salary)
 
 
