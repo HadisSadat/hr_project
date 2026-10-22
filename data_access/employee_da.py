@@ -5,7 +5,8 @@ import pickle
 class EmployeeDa:
     def __init__(self):
         self.filename = "data_access/data/employees.dat"
-        self.member_list = self.find_all()
+        os.makedirs(os.path.dirname(self.filename), exist_ok=True)
+        self.employee_list = self.find_all()
 
     def save(self, employee):
         self.employee_list.append(employee)

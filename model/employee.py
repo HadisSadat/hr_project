@@ -69,6 +69,4 @@ class Employee:
 
 
     def to_tuple(self):
-        return (self.emp_id, self.name, self.family, self.national_id, self.phone_number, self.position, self.salary)
-
-
+        return self.emp_id, self.name, self.family, self.national_id, self.phone_number, self.position, self.salary
