@@ -24,3 +24,8 @@ class Validator:
     def phone_number_validator(phone_number):
         if not re.match(r"^09\d{9}$", str(phone_number)):
             raise ValueError("Invalid Phone Number")
+
+    @staticmethod
+    def positive_number_validator(num):
+        if not isinstance(num, (int, float)) or num < 0:
+            raise ValueError("Value must be a positive number")
