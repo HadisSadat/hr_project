@@ -7,7 +7,8 @@ class Employee:
                  national_id,
                  phone_number,
                  position,
-                 salary):
+                 salary,
+                 dep_id):
         self.emp_id = emp_id
         self.name = name
         self.family = family
@@ -15,6 +16,7 @@ class Employee:
         self.phone_number = phone_number
         self.position = position
         self.salary = salary
+        self.dep_id = dep_id
 
 
     @property
@@ -60,12 +62,13 @@ class Employee:
 
     def __repr__(self):
         return (f"Employee : {self.emp_id:4} "
-                f"{self.name:15}"
+                f" {self.name:15}"
                 f" {self.family:20}"
                 f" {self.national_id:15}"
                 f" {self.phone_number:14}"
                 f" {self.position:20}"
-                f" {self.salary:5}")
+                f" {self.salary:5}"
+                f" {self.dep_id:4}")
 
 
     def to_tuple(self):
