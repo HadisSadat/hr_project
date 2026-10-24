@@ -10,7 +10,6 @@ class DepartmentDa:
         self.department_list = self.find_all()
 
     def save(self, item):
-        # Reload before saving so a second window cannot overwrite newer records.
         self.department_list = self.find_all()
         self.department_list.append(item)
         with self.filename.open("wb") as file:
