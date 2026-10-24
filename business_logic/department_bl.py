@@ -9,7 +9,9 @@ class DepartmentBL:
     def save(self, department):
         all_deps = self.department_da.find_all()
         for dep in all_deps:
-            if dep.department_name == department.department_name:
+            if dep.dep_id == department.dep_id:
+                raise ValueError("Department ID already exists!")
+            if dep.department_name.casefold() == department.department_name.casefold():
                 raise ValueError("Department name already exists!")
 
         self.department_da.save(department)

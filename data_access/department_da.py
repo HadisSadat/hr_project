@@ -1,24 +1,23 @@
-import os
+from pathlib import Path
 import pickle
 
 
 class DepartmentDa:
     def __init__(self):
-        self.filename = "data_access/data/departments.dat"
-        os.makedirs(os.path.dirname(self.filename), exist_ok=True)
+        data_dir = Path(__file__).resolve().parent / "data"
+        data_dir.mkdir(parents=True, exist_ok=True)
+        self.filename = data_dir / "departments.dat"
         self.department_list = self.find_all()
 
-    def save(self, department):
-        self.department_list.append(department)
-        file = open(self.filename, "wb")
-        pickle.dump(self.department_list, file)
-        file.close()
+    def save(self, item):
+        # Reload before saving so a second window cannot overwrite newer records.
+        self.department_list = self.find_all()
+        self.department_list.append(item)
+        with self.filename.open("wb") as file:
+            pickle.dump(self.department_list, file)
 
     def find_all(self):
-         if not os.path.exists(self.filename):
+        if not self.filename.exists():
             return []
-         else:
-            file = open(self.filename, "rb")
-            department_list = pickle.load(file)
-            file.close()
-            return department_list
+        with self.filename.open("rb") as file:
+            return pickle.load(file)

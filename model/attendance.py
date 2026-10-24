@@ -13,10 +13,13 @@ class Attendance:
             fmt = '%H:%M'
             t1 = datetime.strptime(self.check_in, fmt)
             t2 = datetime.strptime(self.check_out, fmt)
-            delta = t2 - t1
-            return delta.seconds / 3600.0
-        except ValueError:
+        except (ValueError, TypeError):
             raise ValueError("Time format must be HH:MM")
+
+        if t2 < t1:
+            raise ValueError("Check-out time cannot be before Check-in time")
+
+        return (t2 - t1).total_seconds() / 3600.0
 
 
     def __repr__(self):
@@ -28,4 +31,10 @@ class Attendance:
 
 
     def to_tuple(self):
-        return (self.att_id, self.emp_id, self.date, self.check_in, self.check_out, round(self.calculate_hour(), 2))
+        return (self.att_id,
+                self.emp_id,
+                self.date,
+                self.check_in,
+                self.check_out,
+                round(self.calculate_hour(), 2)
+                )

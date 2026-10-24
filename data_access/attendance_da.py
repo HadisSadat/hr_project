@@ -1,24 +1,22 @@
-import os
+from pathlib import Path
 import pickle
 
 
 class AttendanceDa:
     def __init__(self):
-        self.filename = "data_access/data/attendance.dat"
-        os.makedirs(os.path.dirname(self.filename), exist_ok=True)
+        data_dir = Path(__file__).resolve().parent / "data"
+        data_dir.mkdir(parents=True, exist_ok=True)
+        self.filename = data_dir / "attendance.dat"
         self.attendance_list = self.find_all()
 
-    def save(self, attendance):
-        self.attendance_list.append(attendance)
-        file = open(self.filename, "wb")
-        pickle.dump(self.attendance_list, file)
-        file.close()
+    def save(self, item):
+        self.attendance_list = self.find_all()
+        self.attendance_list.append(item)
+        with self.filename.open("wb") as file:
+            pickle.dump(self.attendance_list, file)
 
     def find_all(self):
-         if not os.path.exists(self.filename):
+        if not self.filename.exists():
             return []
-         else:
-            file = open(self.filename, "rb")
-            attendance_list = pickle.load(file)
-            file.close()
-            return attendance_list
+        with self.filename.open("rb") as file:
+            return pickle.load(file)

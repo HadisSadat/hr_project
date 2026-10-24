@@ -46,7 +46,7 @@ class Employee:
     @national_id.setter
     def national_id(self, national_id):
         Validator.national_id_validator(national_id)
-        self.__national_id = national_id
+        self.__national_id = str(national_id)
 
 
     @property
@@ -56,7 +56,7 @@ class Employee:
     @phone_number.setter
     def phone_number(self, phone_number):
         Validator.phone_number_validator(phone_number)
-        self.__phone_number = phone_number
+        self.__phone_number = str(phone_number)
 
 
 
@@ -72,4 +72,13 @@ class Employee:
 
 
     def to_tuple(self):
-        return self.emp_id, self.name, self.family, self.national_id, self.phone_number, self.position, self.salary
+        return (
+            self.emp_id,
+            self.name,
+            self.family,
+            self.national_id,
+            self.phone_number,
+            self.position,
+            self.salary,
+            self.dep_id
+        )

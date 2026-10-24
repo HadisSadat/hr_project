@@ -8,6 +8,11 @@ class EmployeeBL:
         self.department_da = DepartmentDa()
 
     def save(self, employee):
+        employees = self.employee_da.find_all()
+        if any(emp.emp_id == employee.emp_id for emp in employees):
+            raise ValueError("Employee ID already exists!")
+        if any(emp.national_id == employee.national_id for emp in employees):
+            raise ValueError("National ID already exists!")
         deps = [d.dep_id for d in self.department_da.find_all()]
         if employee.dep_id not in deps and employee.dep_id != 0:
             raise ValueError("Department ID does not exist")

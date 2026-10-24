@@ -7,15 +7,16 @@ class AttendanceBL:
         self.employee_da = EmployeeDa()
 
     def save(self, attendance):
+        records = self.attendance_da.find_all()
+        if any(item.att_id == attendance.att_id for item in records):
+            raise ValueError("Attendance ID already exists!")
         employees = [emp.emp_id for emp in self.employee_da.find_all()]
         if attendance.emp_id not in employees:
             raise ValueError("Employee ID does not exist.")
 
-        if attendance.check_in >= attendance.check_out:
-            raise ValueError("Check-out time must be after check-in time.")
         try:
             attendance.calculate_hour()
-        except Exception as e:
+        except ValueError as e:
             raise ValueError(f"Time format error: {e}")
 
 
