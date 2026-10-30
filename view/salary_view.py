@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk, messagebox
 from controller.salary_controller import SalaryController
 
+
 class SalaryView:
     def __init__(self):
         self.controller = SalaryController()
@@ -57,7 +58,7 @@ class SalaryView:
 
         Button(self.win, text="Save", command=self.save_click, width=15).place(x=30, y=300)
         self.reset_from()
-        
+
     def reset_from(self):
         self.salary_id.set(0)
         self.emp_id.set(0)

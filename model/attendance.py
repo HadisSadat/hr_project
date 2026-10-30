@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class Attendance:
     def __init__(self, att_id, emp_id, date, check_in, check_out):
         self.att_id = att_id
@@ -21,14 +22,12 @@ class Attendance:
 
         return (t2 - t1).total_seconds() / 3600.0
 
-
     def __repr__(self):
         return (f"Attendance : {self.att_id:4}"
                 f" {self.emp_id:4}"
                 f" {self.date:10}"
                 f" {self.check_in:5}"
                 f" {self.check_out:5}")
-
 
     def to_tuple(self):
         return (self.att_id,

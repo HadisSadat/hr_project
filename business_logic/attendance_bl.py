@@ -1,6 +1,7 @@
 from data_access.attendance_da import AttendanceDa
 from data_access.employee_da import EmployeeDa
 
+
 class AttendanceBL:
     def __init__(self):
         self.attendance_da = AttendanceDa()
@@ -18,7 +19,6 @@ class AttendanceBL:
             attendance.calculate_hour()
         except ValueError as e:
             raise ValueError(f"Time format error: {e}")
-
 
         self.attendance_da.save(attendance)
 

@@ -66,7 +66,7 @@ class EmployeeView:
         Button(self.win, text="Save", command=self.save_click, width=15).place(x=30, y=350)
 
         self.reset_from()
-        
+
     def reset_from(self):
         self.emp_id.set(0)
         self.name.set("")

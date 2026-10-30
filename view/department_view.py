@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk, messagebox
 from controller.department_controller import DepartmentController
 
+
 class DepartmentView:
     def __init__(self):
         self.controller = DepartmentController()
@@ -34,7 +35,7 @@ class DepartmentView:
 
         Button(self.win, text="Save", command=self.save_click, width=15).place(x=30, y=300)
         self.reset_from()
-        
+
     def reset_from(self):
         self.dep_id.set(0)
         self.department_name.set("")

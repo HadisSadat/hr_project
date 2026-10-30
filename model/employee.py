@@ -18,7 +18,6 @@ class Employee:
         self.salary = salary
         self.dep_id = dep_id
 
-
     @property
     def name(self):
         return self.__name
@@ -27,7 +26,6 @@ class Employee:
     def name(self, name):
         Validator.name_validator(name)
         self.__name = name
-
 
     @property
     def family(self):
@@ -38,7 +36,6 @@ class Employee:
         Validator.family_validator(family)
         self.__family = family
 
-
     @property
     def national_id(self):
         return self.__national_id
@@ -47,7 +44,6 @@ class Employee:
     def national_id(self, national_id):
         Validator.national_id_validator(national_id)
         self.__national_id = str(national_id)
-
 
     @property
     def phone_number(self):
@@ -58,8 +54,6 @@ class Employee:
         Validator.phone_number_validator(phone_number)
         self.__phone_number = str(phone_number)
 
-
-
     def __repr__(self):
         return (f"Employee : {self.emp_id:4} "
                 f" {self.name:15}"
@@ -69,7 +63,6 @@ class Employee:
                 f" {self.position:20}"
                 f" {self.salary:5}"
                 f" {self.dep_id:4}")
-
 
     def to_tuple(self):
         return (

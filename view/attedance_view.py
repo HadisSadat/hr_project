@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk, messagebox
 from controller.attendance_controller import AttendanceController
 
+
 class AttendanceView:
     def __init__(self):
         self.controller = AttendanceController()
@@ -61,7 +62,7 @@ class AttendanceView:
 
         Button(self.win, text="Save", command=self.save_click, width=15).place(x=30, y=300)
         self.reset_from()
-        
+
     def reset_from(self):
         self.att_id.set(0)
         self.emp_id.set(0)

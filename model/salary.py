@@ -18,14 +18,12 @@ class Salary:
         total = self.base_salary + (self.overtime * 50000) + self.bonus
         return total
 
-
     def __repr__(self):
         return (f"Salary : {self.salary_id:4}"
                 f" {self.emp_id:4}"
                 f" {self.base_salary:12}"
                 f" {self.overtime:4}"
                 f" {self.bonus:12}")
-
 
     def to_tuple(self):
         return self.salary_id, self.emp_id, self.base_salary, self.overtime, self.bonus, self.calculate_total()

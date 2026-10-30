@@ -10,7 +10,6 @@ class SalaryController:
         try:
             salary = Salary(salary_id, emp_id, base_salary, overtime, bonus)
 
-
             self.salary_bl.save(salary)
 
             return True, "Salary Saved Successfully"

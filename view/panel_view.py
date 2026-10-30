@@ -4,6 +4,7 @@ from view.department_view import DepartmentView
 from view.salary_view import SalaryView
 from view.attedance_view import AttendanceView
 
+
 class PanelView:
     def departments_click(self):
         DepartmentView()

@@ -1,5 +1,6 @@
 from tools.validation import Validator
 
+
 class Department:
     def __init__(self, dep_id, department_name):
         self.dep_id = dep_id
