@@ -9,7 +9,8 @@ class SalaryBL:
 
     def save(self, salary):
         salaries = self.salary_da.find_all()
-        if any(item.salary_id == salary.salary_id for item in salaries):
+        existing_salary_ids = [item.salary_id for item in salaries]
+        if salary.salary_id in existing_salary_ids:
             raise ValueError("Salary ID already exists!")
 
         employees = [emp.emp_id for emp in self.employee_da.find_all()]
