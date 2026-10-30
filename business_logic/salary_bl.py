@@ -16,7 +16,7 @@ class SalaryBL:
         if salary.emp_id not in employees:
             raise ValueError("Employee ID does not exist. Cannot assign salary.")
 
-        # Validate values before saving, so rendering the table cannot fail later.
+
         salary.calculate_total()
         self.salary_da.save(salary)
 

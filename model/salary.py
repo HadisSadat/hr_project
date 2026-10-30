@@ -9,6 +9,7 @@ class Salary:
         self.overtime = overtime
         self.bonus = bonus
 
+    # فرض بر این است که هر ساعت اضافه کاری مبلغی معادل 1.5 برابر حقوق پایه در ساعت است
     def calculate_total(self):
         Validator.positive_number_validator(self.base_salary)
         Validator.positive_number_validator(self.overtime)
@@ -27,4 +28,4 @@ class Salary:
 
 
     def to_tuple(self):
-        return (self.salary_id, self.emp_id, self.base_salary, self.overtime, self.bonus, self.calculate_total())
+        return self.salary_id, self.emp_id, self.base_salary, self.overtime, self.bonus, self.calculate_total()

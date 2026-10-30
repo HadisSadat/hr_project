@@ -1,4 +1,3 @@
-from model.attendance import Attendance
 from model.employee import Employee
 from data_access.employee_da import EmployeeDa
 from controller.attendance_controller import AttendanceController
