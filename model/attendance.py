@@ -9,6 +9,8 @@ class Attendance:
         self.check_in = check_in
         self.check_out = check_out
 
+
+
     def calculate_hour(self):
         try:
             fmt = '%H:%M'
@@ -22,12 +24,16 @@ class Attendance:
 
         return (t2 - t1).total_seconds() / 3600.0
 
+
+
     def __repr__(self):
         return (f"Attendance : {self.att_id:4}"
                 f" {self.emp_id:4}"
                 f" {self.date:10}"
                 f" {self.check_in:5}"
                 f" {self.check_out:5}")
+
+
 
     def to_tuple(self):
         return (self.att_id,

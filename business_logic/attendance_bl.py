@@ -7,6 +7,8 @@ class AttendanceBL:
         self.attendance_da = AttendanceDa()
         self.employee_da = EmployeeDa()
 
+
+
     def save(self, attendance):
         records = self.attendance_da.find_all()
         for item in records:
@@ -22,6 +24,8 @@ class AttendanceBL:
             raise ValueError(f"Time format error: {e}")
 
         self.attendance_da.save(attendance)
+
+
 
     def find_all(self):
         return self.attendance_da.find_all()

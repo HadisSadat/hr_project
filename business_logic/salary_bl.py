@@ -7,6 +7,8 @@ class SalaryBL:
         self.salary_da = SalaryDa()
         self.employee_da = EmployeeDa()
 
+
+
     def save(self, salary):
         salaries = self.salary_da.find_all()
         existing_salary_ids = [item.salary_id for item in salaries]
@@ -19,6 +21,8 @@ class SalaryBL:
 
         salary.calculate_total()
         self.salary_da.save(salary)
+
+
 
     def find_all(self):
         return self.salary_da.find_all()

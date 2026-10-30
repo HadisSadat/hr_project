@@ -6,6 +6,8 @@ class DepartmentController:
     def __init__(self):
         self.department_bl = DepartmentBL()
 
+
+
     def save(self, dep_id, department_name):
         try:
             department = Department(dep_id, department_name)
@@ -15,6 +17,8 @@ class DepartmentController:
 
         except Exception as e:
             return False, f"Save Failed : {e}"
+
+
 
     def find_all(self):
         try:

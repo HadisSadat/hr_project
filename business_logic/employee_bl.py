@@ -7,6 +7,8 @@ class EmployeeBL:
         self.employee_da = EmployeeDa()
         self.department_da = DepartmentDa()
 
+
+
     def save(self, employee):
         employees = self.employee_da.find_all()
         for emp in employees:
@@ -19,6 +21,8 @@ class EmployeeBL:
             raise ValueError("Department ID does not exist")
 
         self.employee_da.save(employee)
+
+
 
     def find_all(self):
         return self.employee_da.find_all()

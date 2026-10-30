@@ -6,6 +6,8 @@ class SalaryController:
     def __init__(self):
         self.salary_bl = SalaryBL()
 
+
+
     def save(self, salary_id, emp_id, base_salary, overtime, bonus):
         try:
             salary = Salary(salary_id, emp_id, base_salary, overtime, bonus)
@@ -16,6 +18,8 @@ class SalaryController:
 
         except Exception as e:
             return False, f"Save Failed : {e}"
+
+
 
     def find_all(self):
         try:

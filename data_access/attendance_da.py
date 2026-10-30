@@ -9,11 +9,15 @@ class AttendanceDa:
         self.filename = data_dir / "attendance.dat"
         self.attendance_list = self.find_all()
 
+
+
     def save(self, item):
         self.attendance_list = self.find_all()
         self.attendance_list.append(item)
         with self.filename.open("wb") as file:
             pickle.dump(self.attendance_list, file)
+
+
 
     def find_all(self):
         if not self.filename.exists():

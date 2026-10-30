@@ -6,6 +6,8 @@ class EmployeeController:
     def __init__(self):
         self.employee_bl = EmployeeBL()
 
+
+
     def save(self, emp_id, name, family, national_id, phone, position, salary, dep_id):
         try:
             employee = Employee(
@@ -15,6 +17,8 @@ class EmployeeController:
             return True, "Employee Saved"
         except (ValueError, OSError, TypeError) as e:
             return False, f"Save Failed: {e}"
+
+
 
     def find_all(self):
         try:

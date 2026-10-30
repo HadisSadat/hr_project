@@ -6,6 +6,8 @@ class AttendanceController:
     def __init__(self):
         self.attendance_bl = AttendanceBL()
 
+
+
     def save(self, att_id, emp_id, date, check_in, check_out):
         try:
             attendance = Attendance(att_id, emp_id, date, check_in, check_out)
@@ -15,6 +17,8 @@ class AttendanceController:
 
         except Exception as e:
             return False, f"Save Failed : {e}"
+
+
 
     def find_all(self):
         try:
